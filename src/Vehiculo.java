@@ -1,31 +1,31 @@
 public abstract class Vehiculo {
-    private String Placa;
-    private String Marca;
-    private String Modelo;
-    private int Anio;
-    private double PrecioBase;
+    private String placa;
+    private String marca;
+    private String modelo;
+    private int anio;
+    private double precioBase;
 
     public Vehiculo() {
     }
 
     public String getPlaca() {
-        return Placa;
+        return placa;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public String getModelo() {
-        return Modelo;
+        return modelo;
     }
 
     public int getAnio() {
-        return Anio;
+        return anio;
     }
 
     public double getPrecioBase() {
-        return PrecioBase;
+        return precioBase;
     }
 
 
@@ -42,7 +42,7 @@ public abstract class Vehiculo {
             return;
         }
 
-        Placa = placa;
+        this.placa = placa;
     }
 
     public void setMarca(String marca) {
@@ -51,7 +51,7 @@ public abstract class Vehiculo {
             return;
         }
 
-        Marca = marca;
+        this.marca = marca;
     }
 
     public void setModelo(String modelo) {
@@ -60,7 +60,7 @@ public abstract class Vehiculo {
             return;
         }
 
-        Modelo = modelo;
+        this.modelo = modelo;
     }
 
     /**En año agregasmos una libreria para obtener el año actual y asi no dejar estatico el año en 2026 */
@@ -72,7 +72,7 @@ public abstract class Vehiculo {
             return;
         }
 
-        Anio = anio;
+        this.anio = anio;
     }
 
     public void setPrecioBase(double precioBase) {
@@ -81,7 +81,7 @@ public abstract class Vehiculo {
             return;
         }
 
-        PrecioBase = precioBase;
+        this.precioBase = precioBase;
     }
 
     public Vehiculo(String placa, String marca, String modelo, int anio, double precioBase) {
@@ -100,11 +100,11 @@ public abstract class Vehiculo {
 
 
     public String mostrarFicha() {
-        return "Placa: " + Placa +
-                " | Marca: " + Marca +
-                " | Modelo: " + Modelo +
-                " | Año: " + Anio +
-                " | Precio base: $" + PrecioBase;
+        return "Placa: " + placa +
+                " | Marca: " + marca +
+                " | Modelo: " + modelo +
+                " | Año: " + anio +
+                " | Precio base: $" + precioBase;
     }
 
 
