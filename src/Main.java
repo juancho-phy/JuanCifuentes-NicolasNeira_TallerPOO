@@ -70,6 +70,25 @@ public class Main {
         );
         agregarVehiculo(inventario,camion2);
 
+        /**Aplicar funcionalidades llamando los metodos*/
+        System.out.println("=== INVENTARIO AUTOMOTION S.A.S. ===");
+
+        listarInventario(inventario);
+
+        double total = calcularValorTotalInventario(inventario);
+
+        System.out.println("=== VALOR TOTAL DEL INVENTARIO: $" + total + " ===");
+
+        Vehiculo encontrado = buscarPorPlaca(inventario, "BYY789");
+
+        if (encontrado != null) {
+            System.out.println("Vehículo encontrado:");
+            System.out.println(encontrado.mostrarFicha());
+            System.out.println("Precio final: $" + encontrado.calcularPrecioFinal());
+        } else {
+            System.out.println("No se encontró ningún vehículo con esa placa.");
+        }
+
     }
 
     /**Metodo para agregar vehiculos al inventario */
@@ -87,6 +106,35 @@ public class Main {
             System.out.println();
         }
     }
+
+    /**Creacion de metodo calcularValorTotalInventario que recibe la lista inventario y la recorre sumando
+     * todos los resultados del metodo calcularPrecioFinal guardando y retornando la variable total*/
+    public static double calcularValorTotalInventario(ArrayList<Vehiculo> inventario) {
+
+        double total = 0;
+
+        for (Vehiculo v : inventario) {
+            total += v.calcularPrecioFinal();
+        }
+
+        return total;
+    }
+
+    /**este metodo tiene como parametro la lista y la placa, en este ultimo recibe la placa scrita cuando
+     * sea llamado y se empezará a recorrer la lista buscando con cual coincide y retorna el vehiculo*/
+    public static Vehiculo buscarPorPlaca(ArrayList<Vehiculo> inventario, String placa) {
+
+        for (Vehiculo v : inventario) {
+
+            if (v.getPlaca().equals(placa)) {
+                return v;
+            }
+        }
+
+        return null;
+    }
+
+
 
 
 
