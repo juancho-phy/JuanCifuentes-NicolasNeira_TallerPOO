@@ -1,40 +1,95 @@
+import java.util.ArrayList;
+
 public class Main {
 
-
-    /**Objetos de prueba para confirmar funcionalidad de clases creadas por ahora */
+    /**usamos Vehiculo en la lista aunque sea abstracto y no se pueda instanciar si se puede tener
+     * referencias de tipo Vehículo para los objetos hijos*/
     public static void main(String[] args) {
+        ArrayList<Vehiculo> inventario = new ArrayList<>();
 
-        Automovil autoGasolina = new Automovil(
-                "ABC123",
-                "Mazda",
-                "3",
-                2022,
-                30000000,
+        /**Creacion e integracion a la lista de los vehiculos (objetos) manualmente dentro del codigo*/
+        Automovil auto1 = new Automovil(
+                "BYY787",
+                "Chevrolet",
+                "Corsa",
+                2006,
+                20000000,
                 4,
                 "Gasolina"
         );
+        agregarVehiculo(inventario, auto1);
 
-        Automovil autoElectrico = new Automovil(
-                "XYZ789",
-                "BYD",
-                "Dolphin",
-                2024,
-                30000000,
+        Automovil auto2 = new Automovil(
+                "FIB244",
+                "Nissan",
+                "Blue Bird",
+                1985,
+                15000000,
                 4,
-                "Electrico"
+                "Diesel"
         );
+        agregarVehiculo(inventario, auto2);
 
-        System.out.println("Precio automóvil gasolina: $" + autoGasolina.calcularPrecioFinal());
-        System.out.println("Precio automóvil eléctrico: $" + autoElectrico.calcularPrecioFinal());
-
-        Automovil autoPrueba = new Automovil(
-                "ABC123",
-                "Mazda",
-                "3",
-                2022,
-                30000000,
-                8,
-                "Gasolina"
+        Motocicleta moto1 = new Motocicleta(
+                "DJH29J",
+                "Apache",
+                "RTR",
+                2020,
+                10000000,
+                160
         );
+        agregarVehiculo(inventario, moto1);
+
+        Motocicleta moto2 = new Motocicleta(
+                "ZZY44H",
+                "BMW",
+                "S1000RR",
+                2026,
+                137000000,
+                999
+        );
+        agregarVehiculo(inventario, moto2);
+
+        CamionCarga camion1 = new CamionCarga(
+                "KJH456",
+                "Kenworth",
+                "T800",
+                2021,
+                150000000,
+                12
+        );
+        agregarVehiculo(inventario, camion1);
+
+        CamionCarga camion2 = new CamionCarga(
+                "NMB789",
+                "Volvo",
+                "FH",
+                2023,
+                180000000,
+                15
+        );
+        agregarVehiculo(inventario,camion2);
+
     }
+
+    /**Metodo para agregar vehiculos al inventario */
+    public static void agregarVehiculo(ArrayList<Vehiculo> inventario, Vehiculo v){
+        inventario.add(v);
+    }
+
+    /**Metodo para recorrer y mostrar ficha de los vehiculos en el Inventario*/
+    public static void listarInventario(ArrayList<Vehiculo> inventario) {
+
+        for (Vehiculo v : inventario) {
+
+            System.out.println(v.mostrarFicha());
+            System.out.println("Precio final: $" + v.calcularPrecioFinal());
+            System.out.println();
+        }
+    }
+
+
+
+
+
 }
