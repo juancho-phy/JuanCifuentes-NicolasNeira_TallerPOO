@@ -104,7 +104,7 @@ public abstract class Vehiculo {
                 " | Marca: " + marca +
                 " | Modelo: " + modelo +
                 " | Año: " + anio +
-                " | Precio base: $" + precioBase;
+                " | Precio base: $" + String.format("%,.0f",precioBase);
     }
 
 

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.SortedMap;
 
 public class Main {
 
@@ -22,9 +23,9 @@ public class Main {
         Automovil auto2 = new Automovil(
                 "FIB244",
                 "Nissan",
-                "Blue Bird",
-                1985,
-                15000000,
+                "Centra",
+                2006,
+                20000000,
                 4,
                 "Diesel"
         );
@@ -77,17 +78,29 @@ public class Main {
 
         double total = calcularValorTotalInventario(inventario);
 
-        System.out.println("=== VALOR TOTAL DEL INVENTARIO: $" + total + " ===");
+        System.out.println("=== VALOR TOTAL DEL INVENTARIO: $" + String.format("%,.0f", total) + " ===");
 
-        Vehiculo encontrado = buscarPorPlaca(inventario, "BYY789");
+        Vehiculo encontrado = buscarPorPlaca(inventario, "NMB789");
 
         if (encontrado != null) {
             System.out.println("Vehículo encontrado:");
             System.out.println(encontrado.mostrarFicha());
-            System.out.println("Precio final: $" + encontrado.calcularPrecioFinal());
+            System.out.println("Precio final: $" + String.format("%,.0f",encontrado.calcularPrecioFinal()));
         } else {
             System.out.println("No se encontró ningún vehículo con esa placa.");
         }
+
+        System.out.println("---- Prueba de validación ------");
+        Automovil auto3 = new Automovil(
+                "LOL676",
+                "Nissan",
+                "Blue Bird",
+                1885,
+                0,
+                6,
+                "ACPM"
+        );
+        agregarVehiculo(inventario, auto2);
 
     }
 
@@ -102,7 +115,7 @@ public class Main {
         for (Vehiculo v : inventario) {
 
             System.out.println(v.mostrarFicha());
-            System.out.println("Precio final: $" + v.calcularPrecioFinal());
+            System.out.println("Precio final: $" + String.format("%,.0f", v.calcularPrecioFinal()));
             System.out.println();
         }
     }
